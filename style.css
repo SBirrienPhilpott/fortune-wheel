@@ -105,7 +105,7 @@ body
     text-align: center;
     white-space: normal;
     word-wrap: break-word;
-    transform: rotate(calc(-1 * 40deg * var(--i))); /* keeps text horizontal */
+    transform: rotate(calc(-1 * 45deg * var(--i))); /* keeps text horizontal */
     width: 80px;  /* Gives space for text to layout */
     margin-left: -30px;  /* Adjust text position */
     /*    transform: rotate(45deg);*/
