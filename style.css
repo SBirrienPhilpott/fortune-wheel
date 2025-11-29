@@ -76,15 +76,15 @@ body
 
 /* (360° ÷ 8 = 45°)
     (360° ÷ 9 = 40°)*/ 
-.container .wheel .number
-{
+
+.container .wheel .number {
     position: absolute;
     width: 50%;
     height: 50%;
     background: var(--clr);
     transform-origin: bottom right;
     transform: rotate(calc(45deg * var(--i)));
-    clip-path: polygon(0 0, 100% 0, 0 100%);  /* Adjusted from 60%/50% */
+    clip-path: polygon(0 0, 100% 0, 0 100%); /* FIXED */
     display: flex;
     justify-content: center;
     align-items: center;
