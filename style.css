@@ -1,20 +1,25 @@
-/* global reset */
-* {
+style.css
+
+/* This is a global reset*/
+*
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Times New Roman', Times, serif;
 }
 
-body {
-    display: flex;
+body
+{
+    display:flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: #333;
 }
 
-.container {
+.container
+{
     position: relative;
     width: 400px;
     height: 400px;
@@ -23,8 +28,8 @@ body {
     align-items: center;
 }
 
-/* spin button */
-.container .spinbutton {
+.container .spinbutton
+{
     position: absolute;
     width: 60px;
     height: 60px;
@@ -43,7 +48,8 @@ body {
     user-select: none;
 } 
 
-.container .spinbutton::before {
+.container .spinbutton::before
+{
     content: '';
     position:absolute;
     top:-28px;
@@ -53,44 +59,53 @@ body {
     clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
 }
 
-/* wheel container */
-.container .wheel {
+.container .wheel
+{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background: #333;
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 0 0 5px #9b0303, 0 0 0 15px #fff, 0 0 0 18px #b9f246;
     transition: transform 5s ease-out;
+
 }
 
-/* triangle slices */
-.container .wheel .number {
+/* (360° ÷ 8 = 45°)
+    (360° ÷ 9 = 40°)*/ 
+.container .wheel .number
+{
     position: absolute;
-    width: 100%;    /* full wheel */
-    height: 100%;
+    width: 50%;
+    height: 50%;
     background: var(--clr);
-    clip-path: polygon(50% 50%, 100% 0, 100% 100%); /* triangle from center to right edge */
-    transform-origin: 50% 50%;  /* rotate around wheel center */
-    transform: rotate(calc(45deg * var(--i))); /* 8 slices -> 360/8 = 45° */
+    transform-origin: bottom right;
+    transform: rotate(calc(40deg * var(--i)));
+    clip-path: polygon(0 0, 68% 0, 100% 100%, 0 68%);  /* Adjusted from 60%/50% */
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    user-select: none;
     cursor: pointer;
 }
 
-/* label inside slice */
-.container .wheel .number span {
-    position: absolute;
-    top: 20px;  /* distance from center */
-    left: 50%;
-    transform: translateX(-50%) rotate(calc(-1 * 45deg * var(--i))); /* keep text horizontal */
-    text-align: center;
+.container .wheel .number span
+{
+    position: relative;
+    font-size: 2em;
     color: #fff;
     font-weight: 700;
-    width: 80px;
-}
+    text-shadow: 3px 5px 2px rgba(0,0,0, 0.15);
+    transform: rotate(calc(-40deg * var(--i)));
+    transform-origin: center;
+    text-align: center;
+    width: 100px;  /* Gives space for text to layout */
+    margin-left: -30px;  /* Adjust text position */
+    /*    transform: rotate(45deg);*/
 
+
+}
 
