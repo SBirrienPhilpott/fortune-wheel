@@ -82,9 +82,9 @@ body
     width: 50%;
     height: 50%;
     background: var(--clr);
-    transform-origin: bottom right;
+    transform-origin: bottom left;
     transform: rotate(calc(45deg * var(--i)));
-    clip-path: polygon(0 0, 100% 0, 0 100%); /* FIXED */
+    clip-path: polygon(0 0, 100% 0, 0 100%);
     display: flex;
     justify-content: center;
     align-items: center;
